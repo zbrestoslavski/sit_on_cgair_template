@@ -1,0 +1,69 @@
+
+
+@mixin borderRadius($radius: 10px) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+
+@mixin ir() {
+    font: 0/0 a !important;
+    text-shadow: none !important;
+    color: transparent !important;
+    border: 0 !important;
+    background-color: transparent !important;
+    display: block;
+    background-repeat: no-repeat;
+
+    br {display: none;}
+}
+
+@mixin clearfix() {
+    &:after {
+      content: " ";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+  }
+}
+
+
+// @mixin arrow() {
+//
+//   position: relative;
+//
+//   &:after {
+//     content: "";
+//     width: 0;
+//     height: 0;
+//     border: 20px solid transparent;
+//     border-bottom-color: green;
+//     position: absolute;
+//     left: 50%;
+//     top: 20px;
+//   }
+// }
+
+
+@mixin arrow($direction){
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    position: relative;
+    left: 600px;
+  @if $direction == right{
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  } @else if $direction == left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  } @else if $direction == up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  } @else if $direction == down {
+    transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  }
+};
